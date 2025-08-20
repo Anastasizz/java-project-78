@@ -25,7 +25,7 @@ public class ValidatorTest {
         assertFalse(schema.isValid(""), ""); // false
         assertFalse(schema.isValid(null), ""); // false
 
-        schema.minLength(7);
+        schema.minLength(2).minLength(7);
         assertFalse(schema.isValid("Hexlet"), ""); // false
 
         schema.contains("fox");
@@ -35,7 +35,27 @@ public class ValidatorTest {
     }
 
     @Test
-    public void simpleTest() {
-        assertTrue(true);
+    public void numberSchemaTest() {
+        var schema = validator.number();
+
+        assertTrue(schema.isValid(null), ""); // true
+        assertTrue(schema.isValid(0), ""); // true
+        assertTrue(schema.isValid(5), ""); // true
+        assertTrue(schema.isValid(-7), ""); // true
+
+        schema.positive();
+        assertTrue(schema.isValid(null), ""); // true
+        assertFalse(schema.isValid(0), ""); // false
+        assertTrue(schema.isValid(5), ""); // true
+        assertFalse(schema.isValid(-7), ""); // false
+
+        schema.required();
+        assertFalse(schema.isValid(null), ""); // false
+        assertTrue(schema.isValid(5), ""); // true
+
+        schema.range(5, 10);
+        assertTrue(schema.isValid(5), ""); // true
+        assertFalse(schema.isValid(12), ""); // false
+
     }
 }
