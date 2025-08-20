@@ -1,7 +1,5 @@
 package hexlet.code.schemas;
 
-import hexlet.code.Check;
-
 public class StringSchema extends BaseSchema<String> {
 
     public StringSchema required() {

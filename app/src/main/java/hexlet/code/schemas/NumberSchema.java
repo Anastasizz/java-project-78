@@ -1,7 +1,5 @@
 package hexlet.code.schemas;
 
-import hexlet.code.Check;
-
 public class NumberSchema extends BaseSchema<Integer> {
 
     public NumberSchema required() {

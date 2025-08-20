@@ -5,7 +5,7 @@ import hexlet.code.Check;
 import java.util.HashMap;
 import java.util.Map;
 
-abstract class BaseSchema <T> {
+abstract class BaseSchema<T> {
     protected Map<String, Check<T>> checks = new HashMap<>();
 
     protected void addCheck(String name, Check<T> check) {
