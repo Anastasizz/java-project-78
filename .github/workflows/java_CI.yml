@@ -20,7 +20,7 @@ jobs:
       #- run: ./gradlew checkstyleMain
       #- run: ./gradlew test
       - run: make build
-      - run: make test
+      #- run: make test  уже запускается в build
       - run: make report
 
       - name: Cache SonarQube packages
