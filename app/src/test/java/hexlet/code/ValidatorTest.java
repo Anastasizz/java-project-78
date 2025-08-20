@@ -62,7 +62,7 @@ public class ValidatorTest {
     }
 
     @Test
-    public void MapSchemaTest() {
+    public void mapSchemaTest() {
         var schema = validator.map();
 
         assertTrue(schema.isValid(null)); // true
