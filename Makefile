@@ -1,16 +1,14 @@
-.PHONY: build checkstyle test
-
 run-dist:
-	cd app && ./build/install/app/bin/app
+	make -C app run-dist
 
 build:
-	cd app && ./gradlew build
+	make -C app build
 
 checkstyle:
-	cd app && ./gradlew checkstyleMain
+	make -C app checkstyle
 
 test:
-	cd app && ./gradlew test
+	make -C app test
 
 report:
-	cd app && ./gradlew jacocoTestReport
+	make -C app report

@@ -1,11 +1,10 @@
 package hexlet.code.schemas;
 
 import hexlet.code.Check;
-
 import java.util.HashMap;
 import java.util.Map;
 
-abstract class BaseSchema<T> {
+public abstract class BaseSchema<T> {
     protected Map<String, Check<T>> checks = new HashMap<>();
 
     protected void addCheck(String name, Check<T> check) {
@@ -14,10 +13,14 @@ abstract class BaseSchema<T> {
 
     public boolean isValid(T value) {
         for (var check : checks.values()) {
+            if (value == null) {
+                return !checks.containsKey("required");
+            }
             if (!check.apply(value)) {
                 return false;
             }
         }
         return true;
+
     }
 }
